@@ -256,3 +256,28 @@ Lessons and permanent architectural rules established during the implementation 
   - The navigation header dynamically highlights the current room (`active` link indicator).
   - The Shopping Bag persists seamlessly across rooms with zero hydration mismatch.
   - The procedural Web Audio player remains docked and continuously playing as users navigate the house.
+
+---
+
+## 11. Editorial Tension & Copywriting Discipline (The Artists Milestone)
+
+Lessons and permanent architectural rules established during the implementation of the dedicated `/artists` room:
+
+### 1. Rhythmic Asymmetry (Scalable Editorial Tension)
+- **The Dilemma:** Monotonous 3-column e-commerce grids feel generic and sterile, while arbitrary hardcoded asymmetry (e.g. bespoke styles for artist #1 vs artist #2) collapses when new entities are added to the roster.
+- **The Architecture:** Use a **rhythmic, formulaic cycle** based on a 12-column grid system (`repeat(12, minmax(0, 1fr))`) cycling every 4 items (`4n` cycle):
+  - `4n + 1` (Dominant Lead): Span 7 columns with landscape/cinematic media (`16:11`) and monumental poster typography (`clamp(32px, 3.8vw, 54px)`).
+  - `4n + 2` (Counterweight): Span 5 columns with vertical portrait media (`4:5`) and an intentional vertical top offset (`margin-top: clamp(40px, 6vw, 90px)`), creating unhurried physical breathing space.
+  - `4n + 3` (Inverted Anchor): Span 5 columns on the left with subtle top offset.
+  - `4n + 4` (Inverted Lead): Span 7 columns on the right.
+- **The Benefit:** The directory reads like a high-end physical monograph or art gallery spread. It remains 100% scalable whether the roster holds 3 artists, 12 artists, or 40 artists.
+
+### 2. Zero Defensive Marketing & Zero "Yapping" Copywriting
+- **The Pitfall:** Over-explaining the brand's philosophy using defensive, wordy marketing prose (e.g., *"Not assembled by algorithm. Five distinct paths creating sound that lives where the world already stands"* or *"Not proof-of-fandom gear. Taste-signaling essentials engineered in Seoul"*). This sounds insecure and verbose ("yapping").
+- **The Directive:** ATMOS speaks with cold, quiet, absolute confidence. Never explain *why* something isn't mainstream or defensive. State what it *is* in short, declarative fragments:
+  - **Forbidden:** *"Not assembled by algorithm. Rooted in cities, crossing in one room. Five distinct paths creating sound that lives where the world already stands."*
+  - **Mandatory:** *"Rooted in cities.<br />Crossing in one room."*
+  - **Forbidden:** *"Not proof-of-fandom gear. Taste-signaling essentials engineered in Seoul, made for everywhere. Zero tour slogans. Just cut, weight, and silhouette."*
+  - **Mandatory:** *"Cut, weight, and silhouette.<br />Made for everywhere."*
+- **Typographic Line Breaks:** Short declarative house statements should be deliberately broken into two balanced lines (`<br />`) to preserve geometric tension against monumental headers.
+
