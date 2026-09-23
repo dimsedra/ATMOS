@@ -748,6 +748,159 @@ h1, h2, h3, p { margin: 0; }
 }
 
 
+/* ==========================================================================
+   Dedicated Artists Page Architecture (Pillar II & III - Scalable Roster Grid)
+   ========================================================================== */
+.artists-page-hero {
+  padding: clamp(60px, 8vw, 110px) var(--page-gutter) clamp(40px, 5vw, 70px);
+  border-bottom: 1px solid var(--line);
+}
+.artists-page-hero .eyebrow {
+  color: var(--color-muted);
+  margin-bottom: 22px;
+}
+.artists-hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.artists-hero-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6.5vw, 92px);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.artists-hero-header p {
+  max-width: 440px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.artists-catalog-section {
+  padding: clamp(40px, 6vw, 90px) var(--page-gutter) clamp(80px, 10vw, 140px);
+}
+.artists-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 44px);
+}
+.artist-directory-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+  color: inherit;
+}
+.artist-directory-card:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 4px;
+}
+.artist-directory-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #e4e3de;
+}
+.artist-directory-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.artist-directory-card:hover .artist-directory-media img {
+  transform: scale(1.035);
+}
+.artist-directory-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+  gap: 16px;
+}
+.artist-directory-info {
+  flex: 1;
+}
+.artist-directory-meta {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.artist-directory-meta .artist-idx {
+  color: var(--color-ink);
+  font-weight: 500;
+}
+.artist-directory-info h2 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 2.5vw, 36px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+}
+.artist-directory-info p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  margin: 0;
+}
+.artist-directory-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ink);
+  flex-shrink: 0;
+  transition: background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.artist-directory-card:hover .artist-directory-btn {
+  background: var(--color-citron);
+  border-color: var(--color-citron);
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 1100px) {
+  .artists-directory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+@media (max-width: 760px) {
+  .artists-hero-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .artists-directory-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
