@@ -190,11 +190,11 @@ export function ArtistsExperience() {
 
         {/* Global Footer */}
         <footer className="site-footer">
-          <div className="footer-columns">
-            <div className="footer-brand-column">
-              <span className="eyebrow">SEOUL / EST. 2026</span>
-              <p className="footer-lead">
-                An independent music and culture house. Built to meet the world where it already stands.
+          <div className="footer-links">
+            <div>
+              <p className="footer-description">
+                ATMOS is an independent music and culture house. Atmosphere, not
+                spectacle. Rooted in Seoul, at home everywhere.
               </p>
             </div>
 
