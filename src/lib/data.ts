@@ -194,11 +194,11 @@ export const articles: Article[] = [
 export const stories = articles;
 
 export const navLinks = [
-  { label: 'Apparel', href: '#apparel' },
-  { label: 'Artists', href: '#artists' },
-  { label: 'Releases', href: '#releases' },
-  { label: 'Journal', href: '#journal' },
-  { label: 'About', href: '#about' },
+  { label: 'Apparel', href: '/apparel' },
+  { label: 'Artists', href: '/#artists' },
+  { label: 'Releases', href: '/#releases' },
+  { label: 'Journal', href: '/#journal' },
+  { label: 'About', href: '/#about' },
 ];
 
 export const money = (amount: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(amount);

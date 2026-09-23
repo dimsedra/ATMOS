@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'motion/react';
 import { ArrowDownRight, ArrowUp, ArrowUpRight, Check, Menu, Pause, Play, Plus, ShoppingBag, X } from 'lucide-react';
 import { AtmosGlobe, Wordmark } from './Brand';
+import Header from './Header';
 import AudioPlayer from './AudioPlayer';
 import ExperienceDialogs, { type ActiveDialog } from './ExperienceDialogs';
 import Newsletter from './Newsletter';
@@ -91,13 +92,12 @@ export function AtmosExperience() {
   return (
     <MotionConfig reducedMotion="user">
       <a className="skip-link" href="#main">Skip to content</a>
-      <header className="site-header">
-        <a className="header-brand" href="#home" aria-label="ATMOS home"><Wordmark /></a>
-        <span className="header-tagline">SOUND. CULTURE.<br />EVERYWHERE.</span>
-        <nav className="desktop-nav" aria-label="Main navigation">{navLinks.map((link) => <a key={link.href} href={link.href} className={activeSection === link.href.slice(1) ? 'active' : ''}>{link.label}</a>)}</nav>
-        <button className="header-bag" onClick={() => setDialog({ type: 'bag' })} aria-label={`Open bag, ${bagCount} ${bagCount === 1 ? 'item' : 'items'}`}><ShoppingBag size={17} strokeWidth={1.6} /><span>Bag</span><span className="bag-count">({bagCount.toString().padStart(2, '0')})</span></button>
-        <button className="mobile-menu-button icon-button" aria-label="Open navigation menu" onClick={() => setDialog({ type: 'menu' })}><Menu size={23} /></button>
-      </header>
+      <Header
+        activeRoute={activeSection as any || 'home'}
+        bagCount={bagCount}
+        onOpenBag={() => setDialog({ type: 'bag' })}
+        onOpenMenu={() => setDialog({ type: 'menu' })}
+      />
 
       <main id="main">
         <section className="hero" id="home" aria-label="ATMOS, atmosphere not spectacle">
