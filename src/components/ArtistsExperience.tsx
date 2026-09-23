@@ -137,8 +137,7 @@ export function ArtistsExperience() {
                 <h1>THE VOICES</h1>
               </div>
               <p>
-                Not assembled by algorithm. Rooted in cities, crossing in one room.
-                Five distinct paths creating sound that lives where the world already stands.
+                Rooted in cities. Crossing in one room.
               </p>
             </div>
           </Reveal>

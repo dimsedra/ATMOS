@@ -142,9 +142,9 @@ export function ApparelExperience() {
               </h1>
             </div>
             <p className="apparel-hero-statement">
-              Not proof-of-fandom gear. Taste-signaling essentials engineered in
-              Seoul, made for everywhere. Zero tour slogans. Just cut, weight, and
-              silhouette.
+              Cut, weight, and silhouette.
+              <br />
+              Made for everywhere.
             </p>
           </div>
 
