@@ -230,3 +230,29 @@ When adding new pages, dialogs, features, or components to ATMOS, follow these i
 5. **DO NOT add unrequested decorative badges, counters, chips, or pill wrappers.**
 6. **DO NOT introduce new font families** outside the established triad (`Inter Tight`, `DM Sans`, `IBM Plex Mono`).
 7. **DO NOT use K-pop fandom jargon** ("comeback era", "lightsticks", "stanning", "fandom perks", "bias"). ATMOS is a culture house, not an idol factory.
+
+---
+
+## 10. Dedicated Room Architecture & Scalability (The Apparel Milestone)
+
+Lessons and permanent architectural rules established during the implementation of the first dedicated room (`/apparel`):
+
+### 1. Progressive Disclosure Over Redundant Duplication
+- **The Pitfall:** Creating visually polished sections on the page (e.g. separate "Material Archive" cards, "Measurement Blueprint" tables) that duplicate information already present inside contextual modals (like the Product Detail Dialog).
+- **The Directive:** High-end editorial pages must breathe. Do not dump every detail onto the root scroll. Keep the top-level room calm, spacious, and scannable. Reserve dense specifications, fabric care, and measurement matrices for the interactive dialog drawer where they are contextually relevant.
+- **Rule of Thumb:** *"If a section looks good but does not add unique value to the reader's journey, delete it."*
+
+### 2. The N-Product Scalability Rule
+- **The Pitfall:** Hardcoding bespoke asymmetric lookbook grids (e.g. `1.15fr 1fr`) designed only to look balanced with exactly 2 products. When the catalog expands to dozens of items, the layout collapses or requires continuous code refactoring.
+- **The Directive:** Dedicated catalog pages must use fluid, repeatable grid systems (`repeat(3, minmax(0, 1fr))` on desktop, 2 columns on tablet, 1 column on mobile).
+- **Invariant:** A dedicated room must look pristine and deliberate whether displaying 2 objects, 12 objects, or 50 objects, simply by mapping over the data array.
+
+### 3. Quiet Confidence (Zero Funnel Banners)
+- **The Pitfall:** Inserting loud, marketing-style "Next Room!" or "Explore Sound Room!" promotional callout banners at the foot of dedicated pages.
+- **The Directive:** ATMOS speaks with quiet, unhurried confidence. It does not aggressively funnel or herd visitors. The slim global header and understated footer links already provide intuitive, dignified passageways through the house.
+
+### 4. House Continuity Across Dedicated Rooms
+- Moving between dedicated routes (`/`, `/apparel`, `/sound`) must feel like walking from room to room in the same physical architectural space:
+  - The navigation header dynamically highlights the current room (`active` link indicator).
+  - The Shopping Bag persists seamlessly across rooms with zero hydration mismatch.
+  - The procedural Web Audio player remains docked and continuously playing as users navigate the house.
