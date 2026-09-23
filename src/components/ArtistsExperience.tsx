@@ -137,7 +137,9 @@ export function ArtistsExperience() {
                 <h1>THE VOICES</h1>
               </div>
               <p>
-                Rooted in cities. Crossing in one room.
+                Rooted in cities.
+                <br />
+                Crossing in one room.
               </p>
             </div>
           </Reveal>
