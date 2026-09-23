@@ -4,14 +4,23 @@
 > **Core Creed:** *"Atmosphere, Not Spectacle."*  
 > **Target Aesthetic:** High-End Editorial Print meets Architectural Minimalism  
 
-This document serves as the permanent design memory, art direction philosophy, and engineering directive for ATMOS. Any AI agent, designer, or engineer contributing to this codebase must study and strictly adhere to these principles.
+This document serves as the permanent design memory, art direction philosophy, copywriting voice, and engineering directive for ATMOS. Any AI agent, designer, or engineer contributing to this codebase must study and strictly adhere to these principles.
 
 ---
 
-## 1. The Core Creed: Atmosphere, Not Spectacle
+## 1. The Core Creed & Cultural Thesis
 
-Most AI-generated front-ends fall into the trap of **"AI Slop"**:
-- Purple/blue saturated neon glows on generic dark backgrounds.
+### The Premise: Meeting the World Where It Stands
+K-pop has historically been *exported* — built in one rigid system and sent outward, asking the global audience to adapt to comeback calendars, intense fandom rituals, choreography-dependent songs, and proof-of-fandom gear. Attempts at "globalizing" have mostly been repackaged casting (KATSEYE, XG).
+
+**ATMOS answers a fundamentally different question:**
+> *"What if K-pop met the world where it already stands, instead of asking the world to stand where K-pop is?"*
+
+ATMOS is built from the ground up to feel **native, not translated**, in Seoul, Tokyo, London, California, and Bangkok simultaneously. It trades away idol-system predictability in exchange for authentic cultural residency.
+
+### Rejecting "AI Slop"
+Most AI-generated front-ends fall into the trap of generic digital cliches:
+- Saturated purple/blue neon glows on generic dark backgrounds.
 - Bloated cards with heavy drop shadows (`shadow-2xl`) and round pill containers (`rounded-2xl`).
 - Symmetrical, uninspired 3-column card layouts with generic Lucide icon badges.
 - Excessive, dizzying hover animations with bouncy springs.
@@ -24,7 +33,71 @@ ATMOS is built like a physical, museum-grade monograph or an independent Seoul f
 
 ---
 
-## 2. Color System: Organic Tonal Architecture
+## 2. The Four Pillars Mapped to Code & Art Direction
+
+```mermaid
+flowchart TD
+    Thesis["ATMOS Core Creed:\n'Atmosphere, Not Spectacle'"]
+    
+    Thesis --> P1["Pillar I: SOUND\n(The Car Test)"]
+    Thesis --> P2["Pillar II: PERFORMANCE\n(Loose Over Precise)"]
+    Thesis --> P3["Pillar III: CULTURE\n(Lived-In, Not Translated)"]
+    Thesis --> P4["Pillar IV: LIFESTYLE\n(Worn Without Group Being Point)"]
+
+    P1 --> C1["Code & Design:\n• In-browser Web Audio sketches (audio.ts)\n• BPM & Root note metadata (IBM Plex Mono)\n• Analog warmth, tone & pocket over loudness"]
+    P2 --> C2["Code & Design:\n• Unhurried quintic motion curves (0.7s)\n• Candid rooftop photography (not studio drill)\n• Restrained hover transitions (scale 1.035)"]
+    P3 --> C3["Code & Design:\n• Continuous City Ticker (Seoul, Tokyo, London, LA)\n• Multilingual natural bios (no PR bootcamps)\n• Editorial journal stories grounded in real scenes"]
+    P4 --> C4["Code & Design:\n• 'COLLECTION 001 / EVERYDAY OBJECTS'\n• Boxy cuts, 260 GSM organic cotton, zero fandom logos\n• Taste-signaling fashion over proof-of-fandom merch"]
+```
+
+### Pillar I. Sound — Built to Pass the Car Test
+- **The Philosophy:** The song must survive with nothing else attached. No choreo to fill the gaps, no visual lore carrying an underwritten hook. If it shuffle-plays between Tems and Dominic Fike, does it groove?
+- **How It Manifests in Code:**
+  - Releases feature procedural Web Audio synthesizer previews (`src/lib/audio.ts`) with distinct BPM (e.g. 108 BPM UK garage, 88 BPM soul) and root frequencies.
+  - The UI treats music like a vinyl record store, displaying track timing, release type (`EP` / `Single`), and musical metadata with clinical monospaced dignity.
+
+### Pillar II. Performance — Loose Over Precise
+- **The Philosophy:** "Precision exists to be watched... look at the machine work. Loose performance communicates something else: *this feels good to move to.* That's a party, not a broadcast."
+- **How It Manifests in Code:**
+  - Imagery avoids hyper-staged, synchronized idol formations. Photos are candid rooftop shots, late studio conversations, and natural daylight captures (`atmos-hero.jpg`, `artist-june.jpg`).
+  - Animations are languid and grounded: `cubic-bezier(0.22, 1, 0.36, 1)`, taking a patient 0.7s to 0.8s to glide.
+
+### Pillar III. Culture — Lived-In, Not Translated
+- **The Philosophy:** Not one global asset repackaged for five markets. Real fluency in several scenes at once, carried by people who actually live there.
+- **How It Manifests in Code:**
+  - The City Band marquee (`.city-band`) continuously tracks real-time atmospheric coordinates across Seoul, Tokyo, London, New York, and Los Angeles.
+  - The editorial stories (`#stories`) focus on local subcultures: mixing desks in underground Seoul, long California summers, Bangkok night markets.
+
+### Pillar IV. Lifestyle — Worn Without the Group Being the Point
+- **The Philosophy:** **Not Merch.** Fandom merch is proof-of-fandom gear (value only exists inside knowing the group). Lifestyle is taste-signaling (value exists whether or not the wearer has ever heard the music).
+- **The Ultimate Test:** *"Does the piece get complimented by someone who doesn't know who the group is?"*
+- **How It Manifests in Code:**
+  - The apparel section is called `COLLECTION 001 / EVERYDAY OBJECTS`, not "Official SORA Merchandise".
+  - Copy emphasizes cut, weight, and silhouette: *"100% organic cotton, 260 GSM. Relaxed, boxy fit with dropped shoulders. Cut to feel like it has always been yours."*
+  - Zero idol face prints, zero fandom slogans. Pure, elevated streetwear minimalism.
+
+---
+
+## 3. Copywriting Canon & House Voice
+
+The tone of ATMOS is **the antithesis of hype marketing**. Follow these rules whenever writing text for ATMOS:
+
+| K-Pop / Hype Marketing Slop (FORBIDDEN) | ATMOS House Voice (MANDATORY) |
+| :--- | :--- |
+| "OMG! Stream the brand new MV now!" | "Sound. Culture. Everywhere." |
+| "Join the fandom, buy your official lightstick!" | "Atmosphere, not spectacle." |
+| "Check out SORA's groundbreaking comeback era!" | "Five different paths, crossing in one room." |
+| "Limited edition idol merchandise drop!" | "The Everyday Tee. Cut to feel like it has always been yours." |
+| "Don't miss our exclusive newsletter updates!!!" | "New music. Good things. No unnecessary noise." |
+
+### Copywriting Rules:
+1. **Never use exclamation marks (`!`)** in editorial body copy or headlines. Exclamation is replaced by typographic scale.
+2. **Short, declarative, poetic sentences**: *"A soft voice. A lasting impression."* / *"Not perfectly in sync. Perfectly in the pocket."*
+3. **No corporate speak or idol jargon**: Avoid words like "comeback", "bias", "fandom", "era", "trainee", "showcase". Use "release", "studio", "roster", "collection", "voices".
+
+---
+
+## 4. Color System: Organic Tonal Architecture
 
 ATMOS does not use generic digital white (`#FFFFFF`) or pure pitch black (`#000000`). Its palette is grounded in warm, organic, and earth-derived tones:
 
@@ -37,7 +110,6 @@ ATMOS does not use generic digital white (`#FFFFFF`) or pure pitch black (`#0000
 | `--color-muted` | `#6b6f62` / `#8b8f97` | Secondary copy, photographer credits, and quiet studio metadata. |
 
 ### Atmospheric Room Shifts (Sectional Palette Shifting)
-Instead of a uniform background from top to bottom, ATMOS creates emotional rhythm by shifting room palettes:
 1. **Hero Room (`#5f6b6a` + photographic depth):** Atmospheric dawn fog with gradient scrim.
 2. **Collection Room (`var(--color-paper)`):** Crisp daylight gallery floor.
 3. **Artists Showcase (`#e7e8df`):** A slightly cooler concrete/linen plaster gallery wall.
@@ -46,9 +118,7 @@ Instead of a uniform background from top to bottom, ATMOS creates emotional rhyt
 
 ---
 
-## 3. Typographic Triad & Extreme Scale Tension
-
-The visual power of ATMOS comes from the calculated tension among three distinct font families, paired with deliberate extreme scale contrast:
+## 5. Typographic Triad & Extreme Scale Tension
 
 ```mermaid
 flowchart LR
@@ -77,7 +147,7 @@ ATMOS creates drama by placing monumental typography right next to delicate, min
 
 ---
 
-## 4. Layout & Grid Composition: Asymmetrical Tension
+## 6. Layout & Grid Composition: Asymmetrical Tension
 
 Symmetrical layouts feel static and algorithmic. ATMOS uses intentional **asymmetry** to guide the eye and grant visual weight to lead elements:
 
@@ -95,7 +165,7 @@ Symmetrical layouts feel static and algorithmic. ATMOS uses intentional **asymme
 
 ---
 
-## 5. Architectural Restraint & Shape Language
+## 7. Architectural Restraint & Shape Language
 
 - **Zero Container Border Radius:**
   ```css
@@ -113,7 +183,7 @@ Symmetrical layouts feel static and algorithmic. ATMOS uses intentional **asymme
 
 ---
 
-## 6. Micro-Interactions & Choreographed Motion
+## 8. Micro-Interactions & Choreographed Motion
 
 Motion in ATMOS is restrained, physical, and unhurried:
 
@@ -139,7 +209,7 @@ Motion in ATMOS is restrained, physical, and unhurried:
 
 ---
 
-## 7. Directives for Future Agents & Engineers
+## 9. Directives for Future Agents & Engineers
 
 When adding new pages, dialogs, features, or components to ATMOS, follow these immutable rules:
 
@@ -150,6 +220,7 @@ When adding new pages, dialogs, features, or components to ATMOS, follow these i
 4. **Use `clamp()` for responsive layout and typography** so the experience feels continuous from 320px mobile to 2560px ultra-wide displays.
 5. **Keep containers flat with 0 border-radius**, using 1px hairline rules (`var(--line)`) for structure.
 6. **Provide keyboard accessibility and focus trapping** for all overlay dialogs.
+7. **Write copy that is unhurried, evocative, and devoid of exclamation marks or idol hype.**
 
 ### DO NOT:
 1. **DO NOT use generic rounded cards (`rounded-lg`, `rounded-2xl`)** or Tailwind drop-shadow utilities (`shadow-lg`, `shadow-xl`).
@@ -158,3 +229,4 @@ When adding new pages, dialogs, features, or components to ATMOS, follow these i
 4. **DO NOT use pure white (`#fff`) or pure black (`#000`)**; always respect the tactile paper and ink palette.
 5. **DO NOT add unrequested decorative badges, counters, chips, or pill wrappers.**
 6. **DO NOT introduce new font families** outside the established triad (`Inter Tight`, `DM Sans`, `IBM Plex Mono`).
+7. **DO NOT use K-pop fandom jargon** ("comeback era", "lightsticks", "stanning", "fandom perks", "bias"). ATMOS is a culture house, not an idol factory.
