@@ -195,7 +195,7 @@ export const stories = articles;
 
 export const navLinks = [
   { label: 'Apparel', href: '/apparel' },
-  { label: 'Artists', href: '/#artists' },
+  { label: 'Artists', href: '/artists' },
   { label: 'Releases', href: '/#releases' },
   { label: 'Journal', href: '/#journal' },
   { label: 'About', href: '/#about' },

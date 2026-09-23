@@ -30,11 +30,8 @@ export default function Header({
       </span>
       <nav className="desktop-nav" aria-label="Main navigation">
         {navLinks.map((link) => {
-          const isApparel = link.href === '/apparel';
-          const anchorName = link.href.replace('/#', '').replace('#', '');
-          const isActive = isApparel
-            ? activeRoute === 'apparel'
-            : activeRoute === anchorName;
+          const routeSlug = link.href.replace('/', '').replace('#', '');
+          const isActive = activeRoute === routeSlug;
 
           return (
             <Link
