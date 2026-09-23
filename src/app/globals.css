@@ -788,9 +788,59 @@ h1, h2, h3, p { margin: 0; }
 }
 .artists-directory-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(24px, 3vw, 44px);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(48px, 6vw, 90px) clamp(24px, 3.5vw, 48px);
 }
+
+/* Base item wrapper supporting full-height column span */
+.artists-grid-item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Rhythmic Asymmetric Cycle (4-item repeating pattern)
+   Desktop:
+   Item 4n + 1 (Dominant Lead): Span 7 columns
+   Item 4n + 2 (Counterweight): Span 5 columns + top offset (breathing space)
+   Item 4n + 3 (Inverted Anchor): Span 5 columns + top offset
+   Item 4n + 4 (Inverted Lead): Span 7 columns
+*/
+.artists-grid-item:nth-child(4n + 1) {
+  grid-column: span 7;
+}
+.artists-grid-item:nth-child(4n + 1) .artist-directory-media {
+  aspect-ratio: 16 / 11;
+}
+.artists-grid-item:nth-child(4n + 1) .artist-directory-info h2 {
+  font-size: clamp(32px, 3.8vw, 54px);
+}
+
+.artists-grid-item:nth-child(4n + 2) {
+  grid-column: span 5;
+  margin-top: clamp(40px, 6vw, 90px);
+}
+.artists-grid-item:nth-child(4n + 2) .artist-directory-media {
+  aspect-ratio: 4 / 5;
+}
+
+.artists-grid-item:nth-child(4n + 3) {
+  grid-column: span 5;
+  margin-top: clamp(24px, 4vw, 50px);
+}
+.artists-grid-item:nth-child(4n + 3) .artist-directory-media {
+  aspect-ratio: 4 / 5;
+}
+
+.artists-grid-item:nth-child(4n + 4) {
+  grid-column: span 7;
+}
+.artists-grid-item:nth-child(4n + 4) .artist-directory-media {
+  aspect-ratio: 16 / 11;
+}
+.artists-grid-item:nth-child(4n + 4) .artist-directory-info h2 {
+  font-size: clamp(32px, 3.8vw, 54px);
+}
+
 .artist-directory-card {
   display: flex;
   flex-direction: column;
@@ -800,6 +850,7 @@ h1, h2, h3, p { margin: 0; }
   padding: 0;
   text-align: left;
   color: inherit;
+  width: 100%;
 }
 .artist-directory-card:focus-visible {
   outline: 2px solid var(--color-ink);
@@ -808,7 +859,6 @@ h1, h2, h3, p { margin: 0; }
 .artist-directory-media {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
   overflow: hidden;
   background: #e4e3de;
 }
@@ -854,6 +904,10 @@ h1, h2, h3, p { margin: 0; }
   letter-spacing: -0.035em;
   text-transform: uppercase;
   margin: 0 0 10px 0;
+  transition: color 0.3s ease;
+}
+.artist-directory-card:hover .artist-directory-info h2 {
+  color: #000;
 }
 .artist-directory-info p {
   font-size: 13.5px;
@@ -882,14 +936,27 @@ h1, h2, h3, p { margin: 0; }
   transform: translate(2px, -2px);
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
   .artists-directory-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 32px;
+    gap: 40px 28px;
+  }
+  .artists-grid-item:nth-child(n) {
+    grid-column: span 1;
+    margin-top: 0;
+  }
+  .artists-grid-item:nth-child(even) {
+    margin-top: 30px;
+  }
+  .artists-grid-item:nth-child(n) .artist-directory-media {
+    aspect-ratio: 4 / 5;
+  }
+  .artists-grid-item:nth-child(n) .artist-directory-info h2 {
+    font-size: clamp(24px, 3vw, 32px);
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 640px) {
   .artists-hero-header {
     flex-direction: column;
     align-items: flex-start;
@@ -897,7 +964,11 @@ h1, h2, h3, p { margin: 0; }
   }
   .artists-directory-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
+  }
+  .artists-grid-item:nth-child(n) {
+    grid-column: span 1;
+    margin-top: 0;
   }
 }
 

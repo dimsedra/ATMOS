@@ -150,7 +150,7 @@ export function ArtistsExperience() {
             {artists.map((artist, idx) => {
               const formattedIdx = `[0${idx + 1}]`;
               return (
-                <Reveal key={artist.id} delay={idx * 0.08}>
+                <Reveal key={artist.id} delay={idx * 0.08} className="artists-grid-item">
                   <button
                     type="button"
                     className="artist-directory-card"
