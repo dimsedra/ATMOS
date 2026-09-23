@@ -3,12 +3,12 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'motion/react';
-import { ArrowRight, ArrowUpRight, Check, Plus } from 'lucide-react';
+import { ArrowRight, Plus } from 'lucide-react';
 import Header from './Header';
 import AudioPlayer from './AudioPlayer';
 import ExperienceDialogs, { type ActiveDialog } from './ExperienceDialogs';
 import Newsletter from './Newsletter';
-import { Wordmark, AtmosGlobe } from './Brand';
+import { Wordmark } from './Brand';
 import { useAudioPlayer } from '../lib/audio';
 import {
   products,
@@ -57,14 +57,6 @@ function initialBag(): CartItem[] {
     );
   });
 }
-
-const fitMatrixData = [
-  { size: 'XS', chest: 54, length: 64, shoulder: '51.0', fit: 'Tailored close' },
-  { size: 'S', chest: 57, length: 67, shoulder: '53.5', fit: 'Slim casual' },
-  { size: 'M', chest: 60, length: 70, shoulder: '56.0', fit: 'Intended boxy drape' },
-  { size: 'L', chest: 63, length: 73, shoulder: '58.5', fit: 'Relaxed streetwear' },
-  { size: 'XL', chest: 66, length: 76, shoulder: '61.0', fit: 'Generous oversized' },
-];
 
 export function ApparelExperience() {
   const [dialog, setDialog] = useState<ActiveDialog | null>(null);
@@ -135,7 +127,7 @@ export function ApparelExperience() {
 
       <main id="main">
         {/* =================================================================
-            Movement 1: Collection Hero Spread
+            Hero Section: Collection Overview
             ================================================================= */}
         <section className="apparel-page-hero" aria-label="Collection 001 Overview">
           <div className="apparel-hero-header">
@@ -169,22 +161,22 @@ export function ApparelExperience() {
         </section>
 
         {/* =================================================================
-            Movement 2: The Objects Spread (Asymmetrical Lookbook Grid)
+            Scalable Product Catalog Grid
             ================================================================= */}
-        <section className="section" aria-label="Collection Objects">
+        <section className="section" aria-label="Collection Objects Catalog">
           <Reveal className="section-header">
             <div>
               <p className="eyebrow">
-                <span>02</span> CURATED PIECES
+                <span>02</span> CATALOGUE
               </p>
               <h2>The Objects</h2>
             </div>
             <p className="section-aside">
-              Two core essentials, developed through six rounds of garment sampling.
+              {products.length.toString().padStart(2, '0')} OBJECTS AVAILABLE
             </p>
           </Reveal>
 
-          <div className="apparel-catalog-grid">
+          <div className="apparel-grid-scalable">
             {products.map((product) => (
               <article key={product.id} className="apparel-card">
                 <div
@@ -198,7 +190,7 @@ export function ApparelExperience() {
                       setDialog({ type: 'product', product });
                     }
                   }}
-                  aria-label={`View details for ${product.name}`}
+                  aria-label={`Inspect ${product.name}`}
                 >
                   <img src={product.image} alt={product.name} />
                   <span className="quick-view-label">INSPECT OBJECT</span>
@@ -230,116 +222,6 @@ export function ApparelExperience() {
           </div>
         </section>
 
-        {/* =================================================================
-            Movement 3: Material & Textile Archive (Pilar IV Depth)
-            ================================================================= */}
-        <section className="section material-section" aria-label="Material Standards">
-          <Reveal className="section-header">
-            <div>
-              <p className="eyebrow">
-                <span>03</span> TACTILITY & ARCHIVE
-              </p>
-              <h2>Material Standards</h2>
-            </div>
-            <p className="section-aside">
-              Engineered for longevity, weight, and honest drape.
-            </p>
-          </Reveal>
-
-          <div className="material-grid">
-            <div className="material-pillar">
-              <p className="micro">PILLAR 01 / DENSITY</p>
-              <h3>260 GSM Organic Cotton</h3>
-              <p>
-                Heavy enough to hold a clean boxy drape without clinging to the body.
-                Enzymatically softened before stitching for immediate lived-in comfort
-                and zero transparency.
-              </p>
-            </div>
-
-            <div className="material-pillar">
-              <p className="micro">PILLAR 02 / TREATMENT</p>
-              <h3>Garment-Washed Twill</h3>
-              <p>
-                Washed down before final assembly to strip away industrial rigidity.
-                The unstructured crown moulds to the head from the very first hour,
-                aging gracefully over years of wear.
-              </p>
-            </div>
-
-            <div className="material-pillar">
-              <p className="micro">PILLAR 03 / CHROMATICS</p>
-              <h3>Bone & Faded Black</h3>
-              <p>
-                Unbleached, earth-grounded tones calibrated to blend into urban
-                environments across Seoul, London, and Tokyo. Quiet presence over loud
-                seasonal trends.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* =================================================================
-            Movement 4: Architectural Fit Matrix
-            ================================================================= */}
-        <section className="fit-matrix-section" aria-label="Garment Dimensions">
-          <Reveal className="section-header">
-            <div>
-              <p className="eyebrow">
-                <span>04</span> SPECIFICATIONS
-              </p>
-              <h2>The Fit Matrix</h2>
-            </div>
-            <p className="section-aside">
-              Measurements in centimeters. Cut for a relaxed boxy drape.
-            </p>
-          </Reveal>
-
-          <div className="fit-table-wrapper">
-            <table className="fit-table">
-              <thead>
-                <tr>
-                  <th>SIZE</th>
-                  <th>CHEST (CM)</th>
-                  <th>LENGTH (CM)</th>
-                  <th>SHOULDER DROP (CM)</th>
-                  <th>INTENDED FIT PROFILE</th>
-                </tr>
-              </thead>
-              <tbody>
-                {fitMatrixData.map((row) => (
-                  <tr key={row.size}>
-                    <td>
-                      <strong>{row.size}</strong>
-                    </td>
-                    <td>{row.chest}</td>
-                    <td>{row.length}</td>
-                    <td>{row.shoulder}</td>
-                    <td>{row.fit}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* =================================================================
-            Movement 5: Room Transition & Footer
-            ================================================================= */}
-        <section className="room-teaser" aria-label="Next Room Preview">
-          <div>
-            <p className="eyebrow">NEXT ROOM / 02 SOUND</p>
-            <h2>Built to Pass the Car Test</h2>
-            <p>
-              Independent voices. Unhurried hooks. No choreo required to carry the song.
-            </p>
-          </div>
-          <Link href="/#releases" className="room-teaser-link">
-            <span>Explore Sound Room</span>
-            <ArrowRight size={18} />
-          </Link>
-        </section>
-
         {/* Footer */}
         <footer className="site-footer">
           <div className="footer-newsletter">
@@ -360,14 +242,14 @@ export function ApparelExperience() {
 
             <div className="footer-link-group">
               <span className="eyebrow">DISPATCH</span>
-              <a href="/apparel">Collection 001</a>
-              <a href="/#releases">Releases</a>
-              <a href="/#artists">Roster</a>
+              <Link href="/apparel">Collection 001</Link>
+              <Link href="/#releases">Releases</Link>
+              <Link href="/#artists">Roster</Link>
             </div>
 
             <div className="footer-link-group">
               <span className="eyebrow">HOUSE</span>
-              <a href="/#stories">Journal</a>
+              <Link href="/#stories">Journal</Link>
               <button onClick={() => setDialog({ type: 'manifesto' })}>
                 Manifesto
               </button>
