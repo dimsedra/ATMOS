@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://atmos.world'),
   title: 'ATMOS - Atmosphere, not spectacle.',
   description:
     'ATMOS is a music and culture house. Independent voices, good music, and things to live in. Rooted in Seoul. At home everywhere. Atmosphere, not spectacle.',
